@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  mcp-crowdstrike:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: mcp-crowdstrike:latest
+    container_name: mcp-crowdstrike-server
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      # CrowdStrike Falcon API Credentials
+      FALCON_CLIENT_ID: ${FALCON_CLIENT_ID}
+      FALCON_CLIENT_SECRET: ${FALCON_CLIENT_SECRET}
+      FALCON_BASE_URL: ${FALCON_BASE_URL:-https://api.crowdstrike.com}
+
+      # Server Configuration
+      SERVER_HOST: ${SERVER_HOST:-0.0.0.0}
+      SERVER_PORT: ${SERVER_PORT:-8001}
+
+      # Logging
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+
+      # Environment
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+
+    # Load environment from .env file
+    env_file:
+      - ../.env
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # Resource limits (optional, adjust as needed)
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+
+    # Network
+    networks:
+      - mcp-network
+
+networks:
+  mcp-network:
+    driver: bridge

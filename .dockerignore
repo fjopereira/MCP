@@ -1,0 +1,97 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+ENV/
+env/
+
+# Testing
+tests/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage_html/
+.tox/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# Linting
+.ruff_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Development
+Makefile
+setup.sh
+setup.bat
+.pre-commit-config.yaml
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# AI artifacts
+.aider*
+.cursor*
+claude_*
+.clinerules
+.ai*
+copilot*
+.cline/
+*.ai.md
+.anthropic/
+.claude/
+
+# Security
+credentials.json
+*_credentials.*
+*.pem
+*.key
+secrets.*
+
+# Progress tracking
+PROGRESS.md
