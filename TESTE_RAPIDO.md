@@ -2,7 +2,41 @@
 
 Este é um guia **SUPER SIMPLES** para testar o SDK CrowdStrike **SEM precisar de Docker**.
 
-## ⚡ Teste Rápido (5 minutos)
+## 🎯 NOVO! Teste SEM Credenciais (Modo Demo)
+
+**Não quer passar suas credenciais CrowdStrike?** Sem problemas!
+
+Use o **modo demonstração** com dados simulados:
+
+```bash
+# 1. Clonar o repositório
+git clone https://github.com/fjopereira/MCP.git
+cd MCP
+
+# 2. Instalar dependências
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # Linux/Mac
+pip install -e .
+
+# 3. Executar modo demo (SEM CREDENCIAIS!)
+python test_demo_mode.py
+```
+
+**✨ Pronto!** Você verá todas as 9 ferramentas funcionando com dados simulados!
+
+**Vantagens do Modo Demo:**
+- ✅ **NÃO precisa de credenciais CrowdStrike**
+- ✅ Testa TODAS as 9 ferramentas
+- ✅ Dados realistas simulados
+- ✅ Perfeito para demonstração
+- ✅ Ideal para aprender a usar o SDK
+
+**Limitação:** Os dados são simulados/falsos. Para dados reais, veja o teste completo abaixo.
+
+---
+
+## ⚡ Teste Completo com Dados Reais (5 minutos)
 
 ### Passo 1: Instalar Python 3.11+
 
