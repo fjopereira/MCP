@@ -94,6 +94,25 @@ This project provides a comprehensive integration with CrowdStrike Falcon, enabl
 
 ## 🚀 Quick Start
 
+### 🎯 NEW! Demo Mode - Test WITHOUT Credentials
+
+**Don't have CrowdStrike credentials?** Try the **demo mode** with simulated data!
+
+```bash
+git clone https://github.com/fjopereira/MCP.git
+cd MCP
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -e .
+python test_demo_mode.py
+```
+
+**✨ Done!** See all 9 tools working with realistic simulated data - **NO credentials needed!**
+
+📖 **Full demo documentation**: See [DEMO_MODE.md](DEMO_MODE.md)
+
+---
+
 ### Option 1: Automated Setup (Recommended)
 
 **Linux/Mac:**
